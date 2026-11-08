@@ -1,0 +1,17 @@
+{
+  "flows_total": 6672,
+  "packets_total": 44544105,
+  "flows_by_partition": {
+    "pretraining": 6439,
+    "Retraining(script-triggered)": 150,
+    "Retraining(human-triggered)": 83
+  },
+  "min_packets_per_flow": 176,
+  "size_min": 54,
+  "size_max": 1486,
+  "sizes_within_limit": true,
+  "first_packet_outbound_fraction": 1.0,
+  "flows_with_disordered_packets": 938,
+  "disordered_packet_pairs": 1156,
+  "duplicate_flows": 0
+}
