@@ -1,0 +1,75 @@
+"""Wczytywanie konfiguracji eksperymentów z pliku YAML."""
+
+from __future__ import annotations
+
+from dataclasses import dataclass
+from pathlib import Path
+
+import yaml
+
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_CONFIG = PROJECT_ROOT / "configs" / "default.yaml"
+
+
+@dataclass(frozen=True)
+class Paths:
+    raw: Path
+    processed: Path
+    tables: Path
+    figures: Path
+
+
+@dataclass(frozen=True)
+class FeatureConfig:
+    packet_counts: tuple[int, ...]
+    feature_sets: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class SplitConfig:
+    test_fraction: float
+    cv_folds: int
+
+
+@dataclass(frozen=True)
+class KnnConfig:
+    neighbors: tuple[int, ...]
+    metrics: tuple[str, ...]
+    weights: tuple[str, ...]
+    selection_scoring: str
+
+
+@dataclass(frozen=True)
+class Config:
+    seed: int
+    paths: Paths
+    features: FeatureConfig
+    split: SplitConfig
+    knn: KnnConfig
+    accuracy_threshold: float
+
+
+def load_config(path: Path = DEFAULT_CONFIG) -> Config:
+    """Wczytuje konfigurację i zamienia ścieżki na bezwzględne."""
+    raw = yaml.safe_load(Path(path).read_text(encoding="utf-8"))
+    paths = {key: PROJECT_ROOT / value for key, value in raw["paths"].items()}
+    knn = raw["knn"]
+    return Config(
+        seed=int(raw["seed"]),
+        paths=Paths(**paths),
+        features=FeatureConfig(
+            packet_counts=tuple(raw["features"]["packet_counts"]),
+            feature_sets=tuple(raw["features"]["feature_sets"]),
+        ),
+        split=SplitConfig(
+            test_fraction=float(raw["split"]["test_fraction"]),
+            cv_folds=int(raw["split"]["cv_folds"]),
+        ),
+        knn=KnnConfig(
+            neighbors=tuple(knn["neighbors"]),
+            metrics=tuple(knn["metrics"]),
+            weights=tuple(knn["weights"]),
+            selection_scoring=knn["selection_scoring"],
+        ),
+        accuracy_threshold=float(raw["success"]["accuracy_threshold"]),
+    )
