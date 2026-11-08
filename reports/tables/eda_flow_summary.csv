@@ -1,0 +1,16 @@
+partition,app,flows,packets_median,bytes_median,duration_median,duration_p05,duration_p95
+Retraining(human-triggered),Google Doc,15,1402.0,581606.0,59.49,56.18,119.59
+Retraining(human-triggered),Google Drive,18,12746.0,14197472.0,25.31,1.86,29.38
+Retraining(human-triggered),Google Music,15,6297.0,7952710.0,1.47,0.88,12.17
+Retraining(human-triggered),Google Search,15,482.0,342797.0,26.38,13.33,29.32
+Retraining(human-triggered),Youtube,20,11078.5,14057254.5,24.15,16.93,35.07
+Retraining(script-triggered),Google Doc,30,2485.5,706580.5,116.22,102.92,117.34
+Retraining(script-triggered),Google Drive,30,10071.5,11628662.0,27.68,4.55,63.54
+Retraining(script-triggered),Google Music,30,6712.0,8498529.0,1.53,1.21,16.39
+Retraining(script-triggered),Google Search,30,547.5,319687.0,10.94,8.7,12.38
+Retraining(script-triggered),Youtube,30,14623.5,17931497.5,58.96,46.52,61.68
+pretraining,Google Doc,1221,2480.0,703015.0,116.15,108.4,117.11
+pretraining,Google Drive,1634,10324.0,11530086.5,30.28,1.89,64.93
+pretraining,Google Music,592,6860.5,8605366.0,1.59,1.15,16.32
+pretraining,Google Search,1915,733.0,506413.0,10.87,8.31,11.77
+pretraining,Youtube,1077,16209.0,19945725.0,59.06,48.46,61.89
