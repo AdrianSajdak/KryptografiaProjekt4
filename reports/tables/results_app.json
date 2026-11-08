@@ -1,0 +1,1472 @@
+{
+  "target": "app",
+  "split": {
+    "train": 5149,
+    "test": 1290,
+    "test_fraction": 0.2
+  },
+  "best_configuration": {
+    "feature_set": "stats",
+    "n_packets": 150,
+    "n_neighbors": 3,
+    "metric": "manhattan",
+    "weights": "distance"
+  },
+  "best_cv": {
+    "cv_f1_macro": 0.9929277961763742,
+    "cv_accuracy": 0.9933976808476512,
+    "cv_balanced_accuracy": 0.9933482418088453
+  },
+  "accuracy_threshold": 0.9,
+  "evaluations": {
+    "test_chronological": {
+      "n_samples": 1290,
+      "accuracy": 0.993798449612403,
+      "accuracy_ci95": [
+        0.9878104113999284,
+        0.9968542793586659
+      ],
+      "balanced_accuracy": 0.9909714568804077,
+      "f1_macro": 0.9921482800682433,
+      "per_class": {
+        "Google Doc": {
+          "precision": 0.9958847736625515,
+          "recall": 0.9877551020408163,
+          "f1": 0.9918032786885246,
+          "support": 245
+        },
+        "Google Drive": {
+          "precision": 0.9939024390243902,
+          "recall": 0.9969418960244648,
+          "f1": 0.9954198473282443,
+          "support": 327
+        },
+        "Google Music": {
+          "precision": 0.9914529914529915,
+          "recall": 0.9747899159663865,
+          "f1": 0.9830508474576272,
+          "support": 119
+        },
+        "Google Search": {
+          "precision": 0.9948051948051948,
+          "recall": 1.0,
+          "f1": 0.9973958333333334,
+          "support": 383
+        },
+        "Youtube": {
+          "precision": 0.9907834101382489,
+          "recall": 0.9953703703703703,
+          "f1": 0.9930715935334873,
+          "support": 216
+        }
+      },
+      "labels": [
+        "Google Doc",
+        "Google Drive",
+        "Google Music",
+        "Google Search",
+        "Youtube"
+      ],
+      "confusion_matrix": [
+        [
+          242,
+          2,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          326,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          116,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          0,
+          383,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          215
+        ]
+      ]
+    },
+    "test_script_retraining": {
+      "n_samples": 150,
+      "accuracy": 0.9933333333333333,
+      "accuracy_ci95": [
+        0.9632071598332032,
+        0.9988221986779943
+      ],
+      "balanced_accuracy": 0.9933333333333334,
+      "f1_macro": 0.9933314809669354,
+      "per_class": {
+        "Google Doc": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 30
+        },
+        "Google Drive": {
+          "precision": 0.967741935483871,
+          "recall": 1.0,
+          "f1": 0.9836065573770492,
+          "support": 30
+        },
+        "Google Music": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 30
+        },
+        "Google Search": {
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0,
+          "support": 30
+        },
+        "Youtube": {
+          "precision": 1.0,
+          "recall": 0.9666666666666667,
+          "f1": 0.9830508474576272,
+          "support": 30
+        }
+      },
+      "labels": [
+        "Google Doc",
+        "Google Drive",
+        "Google Music",
+        "Google Search",
+        "Youtube"
+      ],
+      "confusion_matrix": [
+        [
+          30,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          30,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          30,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          30,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          29
+        ]
+      ]
+    },
+    "test_human_retraining": {
+      "n_samples": 83,
+      "accuracy": 0.7710843373493976,
+      "accuracy_ci95": [
+        0.6699193220373224,
+        0.8482663530963798
+      ],
+      "balanced_accuracy": 0.768888888888889,
+      "f1_macro": 0.7497654585842592,
+      "per_class": {
+        "Google Doc": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1": 0.8571428571428571,
+          "support": 15
+        },
+        "Google Drive": {
+          "precision": 0.6111111111111112,
+          "recall": 0.6111111111111112,
+          "f1": 0.6111111111111112,
+          "support": 18
+        },
+        "Google Music": {
+          "precision": 0.9375,
+          "recall": 1.0,
+          "f1": 0.967741935483871,
+          "support": 15
+        },
+        "Google Search": {
+          "precision": 0.625,
+          "recall": 0.3333333333333333,
+          "f1": 0.43478260869565216,
+          "support": 15
+        },
+        "Youtube": {
+          "precision": 0.8571428571428571,
+          "recall": 0.9,
+          "f1": 0.8780487804878049,
+          "support": 20
+        }
+      },
+      "labels": [
+        "Google Doc",
+        "Google Drive",
+        "Google Music",
+        "Google Search",
+        "Youtube"
+      ],
+      "confusion_matrix": [
+        [
+          15,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          2,
+          11,
+          0,
+          3,
+          2
+        ],
+        [
+          0,
+          0,
+          15,
+          0,
+          0
+        ],
+        [
+          3,
+          6,
+          0,
+          5,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          18
+        ]
+      ]
+    },
+    "test_random": {
+      "n_samples": 1288,
+      "accuracy": 0.9953416149068323,
+      "accuracy_ci95": [
+        0.9898739799985775,
+        0.9978633241633325
+      ],
+      "balanced_accuracy": 0.9952469807702276,
+      "f1_macro": 0.994819606812382,
+      "per_class": {
+        "Google Doc": {
+          "precision": 0.9878542510121457,
+          "recall": 1.0,
+          "f1": 0.9938900203665988,
+          "support": 244
+        },
+        "Google Drive": {
+          "precision": 1.0,
+          "recall": 0.9847094801223242,
+          "f1": 0.9922958397534669,
+          "support": 327
+        },
+        "Google Music": {
+          "precision": 0.9915254237288136,
+          "recall": 0.9915254237288136,
+          "f1": 0.9915254237288136,
+          "support": 118
+        },
+        "Google Search": {
+          "precision": 0.9973958333333334,
+          "recall": 1.0,
+          "f1": 0.9986962190352021,
+          "support": 383
+        },
+        "Youtube": {
+          "precision": 0.9953917050691244,
+          "recall": 1.0,
+          "f1": 0.9976905311778291,
+          "support": 216
+        }
+      },
+      "labels": [
+        "Google Doc",
+        "Google Drive",
+        "Google Music",
+        "Google Search",
+        "Youtube"
+      ],
+      "confusion_matrix": [
+        [
+          244,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          3,
+          322,
+          1,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          117,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          383,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          216
+        ]
+      ]
+    }
+  },
+  "controls": {
+    "majority": {
+      "test_chronological": {
+        "n_samples": 1290,
+        "accuracy": 0.29689922480620157,
+        "accuracy_ci95": [
+          0.27259943418085353,
+          0.3224050415196932
+        ],
+        "balanced_accuracy": 0.2,
+        "f1_macro": 0.09157202630005977,
+        "per_class": {
+          "Google Doc": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 245
+          },
+          "Google Drive": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 327
+          },
+          "Google Music": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 119
+          },
+          "Google Search": {
+            "precision": 0.29689922480620157,
+            "recall": 1.0,
+            "f1": 0.45786013150029886,
+            "support": 383
+          },
+          "Youtube": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 216
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            245,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            327,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            119,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            383,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            216,
+            0
+          ]
+        ]
+      },
+      "test_script_retraining": {
+        "n_samples": 150,
+        "accuracy": 0.2,
+        "accuracy_ci95": [
+          0.143840815441767,
+          0.27114133140953167
+        ],
+        "balanced_accuracy": 0.2,
+        "f1_macro": 0.06666666666666667,
+        "per_class": {
+          "Google Doc": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 30
+          },
+          "Google Drive": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 30
+          },
+          "Google Music": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 30
+          },
+          "Google Search": {
+            "precision": 0.2,
+            "recall": 1.0,
+            "f1": 0.3333333333333333,
+            "support": 30
+          },
+          "Youtube": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 30
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            30,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            30,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            30,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            30,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            30,
+            0
+          ]
+        ]
+      },
+      "test_human_retraining": {
+        "n_samples": 83,
+        "accuracy": 0.18072289156626506,
+        "accuracy_ci95": [
+          0.11269365787050081,
+          0.27699876919425004
+        ],
+        "balanced_accuracy": 0.2,
+        "f1_macro": 0.061224489795918366,
+        "per_class": {
+          "Google Doc": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 15
+          },
+          "Google Drive": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 18
+          },
+          "Google Music": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 15
+          },
+          "Google Search": {
+            "precision": 0.18072289156626506,
+            "recall": 1.0,
+            "f1": 0.30612244897959184,
+            "support": 15
+          },
+          "Youtube": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 20
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            18,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            20,
+            0
+          ]
+        ]
+      }
+    },
+    "chance": {
+      "test_chronological": {
+        "n_samples": 1290,
+        "accuracy": 0.22325581395348837,
+        "accuracy_ci95": [
+          0.20137190154161477,
+          0.2467830519892828
+        ],
+        "balanced_accuracy": 0.19801185792117462,
+        "f1_macro": 0.19781765032977752,
+        "per_class": {
+          "Google Doc": {
+            "precision": 0.21568627450980393,
+            "recall": 0.22448979591836735,
+            "f1": 0.22,
+            "support": 245
+          },
+          "Google Drive": {
+            "precision": 0.25,
+            "recall": 0.23547400611620795,
+            "f1": 0.24251968503937008,
+            "support": 327
+          },
+          "Google Music": {
+            "precision": 0.08035714285714286,
+            "recall": 0.07563025210084033,
+            "f1": 0.07792207792207792,
+            "support": 119
+          },
+          "Google Search": {
+            "precision": 0.2916666666666667,
+            "recall": 0.2924281984334204,
+            "f1": 0.2920469361147327,
+            "support": 383
+          },
+          "Youtube": {
+            "precision": 0.15151515151515152,
+            "recall": 0.16203703703703703,
+            "f1": 0.15659955257270694,
+            "support": 216
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            55,
+            42,
+            25,
+            76,
+            47
+          ],
+          [
+            69,
+            77,
+            29,
+            86,
+            66
+          ],
+          [
+            21,
+            34,
+            9,
+            35,
+            20
+          ],
+          [
+            69,
+            109,
+            30,
+            112,
+            63
+          ],
+          [
+            41,
+            46,
+            19,
+            75,
+            35
+          ]
+        ]
+      },
+      "test_script_retraining": {
+        "n_samples": 150,
+        "accuracy": 0.18,
+        "accuracy_ci95": [
+          0.12675767772156168,
+          0.24922327891982352
+        ],
+        "balanced_accuracy": 0.18,
+        "f1_macro": 0.16912559207641173,
+        "per_class": {
+          "Google Doc": {
+            "precision": 0.18181818181818182,
+            "recall": 0.2,
+            "f1": 0.19047619047619047,
+            "support": 30
+          },
+          "Google Drive": {
+            "precision": 0.1935483870967742,
+            "recall": 0.2,
+            "f1": 0.19672131147540983,
+            "support": 30
+          },
+          "Google Music": {
+            "precision": 0.14285714285714285,
+            "recall": 0.06666666666666667,
+            "f1": 0.09090909090909091,
+            "support": 30
+          },
+          "Google Search": {
+            "precision": 0.20833333333333334,
+            "recall": 0.3333333333333333,
+            "f1": 0.2564102564102564,
+            "support": 30
+          },
+          "Youtube": {
+            "precision": 0.125,
+            "recall": 0.1,
+            "f1": 0.1111111111111111,
+            "support": 30
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            6,
+            8,
+            1,
+            12,
+            3
+          ],
+          [
+            5,
+            6,
+            4,
+            12,
+            3
+          ],
+          [
+            10,
+            6,
+            2,
+            6,
+            6
+          ],
+          [
+            5,
+            4,
+            2,
+            10,
+            9
+          ],
+          [
+            7,
+            7,
+            5,
+            8,
+            3
+          ]
+        ]
+      },
+      "test_human_retraining": {
+        "n_samples": 83,
+        "accuracy": 0.30120481927710846,
+        "accuracy_ci95": [
+          0.21310689623052642,
+          0.40689027533809213
+        ],
+        "balanced_accuracy": 0.30333333333333334,
+        "f1_macro": 0.2949206349206349,
+        "per_class": {
+          "Google Doc": {
+            "precision": 0.17647058823529413,
+            "recall": 0.2,
+            "f1": 0.1875,
+            "support": 15
+          },
+          "Google Drive": {
+            "precision": 0.3333333333333333,
+            "recall": 0.3333333333333333,
+            "f1": 0.3333333333333333,
+            "support": 18
+          },
+          "Google Music": {
+            "precision": 0.5,
+            "recall": 0.2,
+            "f1": 0.2857142857142857,
+            "support": 15
+          },
+          "Google Search": {
+            "precision": 0.26666666666666666,
+            "recall": 0.5333333333333333,
+            "f1": 0.35555555555555557,
+            "support": 15
+          },
+          "Youtube": {
+            "precision": 0.4166666666666667,
+            "recall": 0.25,
+            "f1": 0.3125,
+            "support": 20
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            3,
+            4,
+            0,
+            7,
+            1
+          ],
+          [
+            3,
+            6,
+            1,
+            5,
+            3
+          ],
+          [
+            3,
+            3,
+            3,
+            5,
+            1
+          ],
+          [
+            3,
+            1,
+            1,
+            8,
+            2
+          ],
+          [
+            5,
+            4,
+            1,
+            5,
+            5
+          ]
+        ]
+      }
+    },
+    "permuted_labels_knn": {
+      "test_chronological": {
+        "n_samples": 1290,
+        "accuracy": 0.24496124031007752,
+        "accuracy_ci95": [
+          0.22227252772710857,
+          0.2691643902327382
+        ],
+        "balanced_accuracy": 0.21851050386805687,
+        "f1_macro": 0.21877534733771653,
+        "per_class": {
+          "Google Doc": {
+            "precision": 0.2,
+            "recall": 0.17142857142857143,
+            "f1": 0.18461538461538463,
+            "support": 245
+          },
+          "Google Drive": {
+            "precision": 0.2727272727272727,
+            "recall": 0.25688073394495414,
+            "f1": 0.26456692913385826,
+            "support": 327
+          },
+          "Google Music": {
+            "precision": 0.1326530612244898,
+            "recall": 0.1092436974789916,
+            "f1": 0.11981566820276497,
+            "support": 119
+          },
+          "Google Search": {
+            "precision": 0.2841648590021692,
+            "recall": 0.34203655352480417,
+            "f1": 0.3104265402843602,
+            "support": 383
+          },
+          "Youtube": {
+            "precision": 0.215962441314554,
+            "recall": 0.21296296296296297,
+            "f1": 0.21445221445221446,
+            "support": 216
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            42,
+            61,
+            13,
+            100,
+            29
+          ],
+          [
+            33,
+            84,
+            33,
+            110,
+            67
+          ],
+          [
+            24,
+            28,
+            13,
+            38,
+            16
+          ],
+          [
+            75,
+            103,
+            19,
+            131,
+            55
+          ],
+          [
+            36,
+            32,
+            20,
+            82,
+            46
+          ]
+        ]
+      },
+      "test_script_retraining": {
+        "n_samples": 150,
+        "accuracy": 0.21333333333333335,
+        "accuracy_ci95": [
+          0.15536236079786364,
+          0.28562057952671066
+        ],
+        "balanced_accuracy": 0.21333333333333332,
+        "f1_macro": 0.19627886002886002,
+        "per_class": {
+          "Google Doc": {
+            "precision": 0.24,
+            "recall": 0.2,
+            "f1": 0.21818181818181817,
+            "support": 30
+          },
+          "Google Drive": {
+            "precision": 0.2647058823529412,
+            "recall": 0.3,
+            "f1": 0.28125,
+            "support": 30
+          },
+          "Google Music": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 30
+          },
+          "Google Search": {
+            "precision": 0.2127659574468085,
+            "recall": 0.3333333333333333,
+            "f1": 0.2597402597402597,
+            "support": 30
+          },
+          "Youtube": {
+            "precision": 0.21212121212121213,
+            "recall": 0.23333333333333334,
+            "f1": 0.2222222222222222,
+            "support": 30
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            6,
+            11,
+            2,
+            8,
+            3
+          ],
+          [
+            8,
+            9,
+            2,
+            6,
+            5
+          ],
+          [
+            4,
+            4,
+            0,
+            13,
+            9
+          ],
+          [
+            3,
+            6,
+            2,
+            10,
+            9
+          ],
+          [
+            4,
+            4,
+            5,
+            10,
+            7
+          ]
+        ]
+      },
+      "test_human_retraining": {
+        "n_samples": 83,
+        "accuracy": 0.1686746987951807,
+        "accuracy_ci95": [
+          0.10322081161791868,
+          0.2634411409964454
+        ],
+        "balanced_accuracy": 0.16555555555555557,
+        "f1_macro": 0.15149494580440873,
+        "per_class": {
+          "Google Doc": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 15
+          },
+          "Google Drive": {
+            "precision": 0.29411764705882354,
+            "recall": 0.2777777777777778,
+            "f1": 0.2857142857142857,
+            "support": 18
+          },
+          "Google Music": {
+            "precision": 0.125,
+            "recall": 0.06666666666666667,
+            "f1": 0.08695652173913043,
+            "support": 15
+          },
+          "Google Search": {
+            "precision": 0.15151515151515152,
+            "recall": 0.3333333333333333,
+            "f1": 0.20833333333333334,
+            "support": 15
+          },
+          "Youtube": {
+            "precision": 0.21428571428571427,
+            "recall": 0.15,
+            "f1": 0.17647058823529413,
+            "support": 20
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            1,
+            1,
+            10,
+            3
+          ],
+          [
+            5,
+            5,
+            1,
+            6,
+            1
+          ],
+          [
+            1,
+            4,
+            1,
+            7,
+            2
+          ],
+          [
+            2,
+            3,
+            0,
+            5,
+            5
+          ],
+          [
+            3,
+            4,
+            5,
+            5,
+            3
+          ]
+        ]
+      }
+    },
+    "whole_flow_volume_knn": {
+      "test_chronological": {
+        "n_samples": 1290,
+        "accuracy": 0.9596899224806201,
+        "accuracy_ci95": [
+          0.9475213677632318,
+          0.9691288074641565
+        ],
+        "balanced_accuracy": 0.952035880611164,
+        "f1_macro": 0.9466905251305342,
+        "per_class": {
+          "Google Doc": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 245
+          },
+          "Google Drive": {
+            "precision": 0.9316770186335404,
+            "recall": 0.9174311926605505,
+            "f1": 0.9244992295839753,
+            "support": 327
+          },
+          "Google Music": {
+            "precision": 0.7883211678832117,
+            "recall": 0.907563025210084,
+            "f1": 0.84375,
+            "support": 119
+          },
+          "Google Search": {
+            "precision": 0.9973958333333334,
+            "recall": 1.0,
+            "f1": 0.9986962190352021,
+            "support": 383
+          },
+          "Youtube": {
+            "precision": 1.0,
+            "recall": 0.9351851851851852,
+            "f1": 0.9665071770334929,
+            "support": 216
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            245,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            300,
+            27,
+            0,
+            0
+          ],
+          [
+            0,
+            10,
+            108,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            383,
+            0
+          ],
+          [
+            0,
+            12,
+            2,
+            0,
+            202
+          ]
+        ]
+      },
+      "test_script_retraining": {
+        "n_samples": 150,
+        "accuracy": 0.9466666666666667,
+        "accuracy_ci95": [
+          0.8982961211345455,
+          0.9727304602201876
+        ],
+        "balanced_accuracy": 0.9466666666666667,
+        "f1_macro": 0.9468401569762588,
+        "per_class": {
+          "Google Doc": {
+            "precision": 0.967741935483871,
+            "recall": 1.0,
+            "f1": 0.9836065573770492,
+            "support": 30
+          },
+          "Google Drive": {
+            "precision": 0.875,
+            "recall": 0.9333333333333333,
+            "f1": 0.9032258064516129,
+            "support": 30
+          },
+          "Google Music": {
+            "precision": 0.9,
+            "recall": 0.9,
+            "f1": 0.9,
+            "support": 30
+          },
+          "Google Search": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 30
+          },
+          "Youtube": {
+            "precision": 1.0,
+            "recall": 0.9,
+            "f1": 0.9473684210526315,
+            "support": 30
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            30,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            28,
+            2,
+            0,
+            0
+          ],
+          [
+            1,
+            2,
+            27,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            30,
+            0
+          ],
+          [
+            0,
+            2,
+            1,
+            0,
+            27
+          ]
+        ]
+      },
+      "test_human_retraining": {
+        "n_samples": 83,
+        "accuracy": 0.7228915662650602,
+        "accuracy_ci95": [
+          0.6183830543537235,
+          0.8076807229784316
+        ],
+        "balanced_accuracy": 0.7577777777777779,
+        "f1_macro": 0.7256149068322981,
+        "per_class": {
+          "Google Doc": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 15
+          },
+          "Google Drive": {
+            "precision": 0.4642857142857143,
+            "recall": 0.7222222222222222,
+            "f1": 0.5652173913043478,
+            "support": 18
+          },
+          "Google Music": {
+            "precision": 0.65,
+            "recall": 0.8666666666666667,
+            "f1": 0.7428571428571429,
+            "support": 15
+          },
+          "Google Search": {
+            "precision": 1.0,
+            "recall": 1.0,
+            "f1": 1.0,
+            "support": 15
+          },
+          "Youtube": {
+            "precision": 0.8,
+            "recall": 0.2,
+            "f1": 0.32,
+            "support": 20
+          }
+        },
+        "labels": [
+          "Google Doc",
+          "Google Drive",
+          "Google Music",
+          "Google Search",
+          "Youtube"
+        ],
+        "confusion_matrix": [
+          [
+            15,
+            0,
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            13,
+            4,
+            0,
+            1
+          ],
+          [
+            0,
+            2,
+            13,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0,
+            15,
+            0
+          ],
+          [
+            0,
+            13,
+            3,
+            0,
+            4
+          ]
+        ]
+      }
+    }
+  },
+  "feature_set_comparison": {
+    "stats": {
+      "configuration": {
+        "feature_set": "stats",
+        "n_packets": 150,
+        "n_neighbors": 3,
+        "metric": "manhattan",
+        "weights": "distance"
+      },
+      "cv_f1_macro": 0.9929277961763742,
+      "test_accuracy": 0.993798449612403,
+      "test_f1_macro": 0.9921482800682433
+    },
+    "all": {
+      "configuration": {
+        "feature_set": "all",
+        "n_packets": 100,
+        "n_neighbors": 1,
+        "metric": "manhattan",
+        "weights": "uniform"
+      },
+      "cv_f1_macro": 0.979673938033421,
+      "test_accuracy": 0.9790697674418605,
+      "test_f1_macro": 0.9750645553265963
+    },
+    "sizes+timing": {
+      "configuration": {
+        "feature_set": "sizes+timing",
+        "n_packets": 10,
+        "n_neighbors": 1,
+        "metric": "manhattan",
+        "weights": "uniform"
+      },
+      "cv_f1_macro": 0.9650799372400904,
+      "test_accuracy": 0.9782945736434109,
+      "test_f1_macro": 0.9761452105269898
+    },
+    "sizes": {
+      "configuration": {
+        "feature_set": "sizes",
+        "n_packets": 10,
+        "n_neighbors": 3,
+        "metric": "manhattan",
+        "weights": "distance"
+      },
+      "cv_f1_macro": 0.9590477255710013,
+      "test_accuracy": 0.9697674418604652,
+      "test_f1_macro": 0.9674260237237107
+    },
+    "timing": {
+      "configuration": {
+        "feature_set": "timing",
+        "n_packets": 10,
+        "n_neighbors": 1,
+        "metric": "manhattan",
+        "weights": "uniform"
+      },
+      "cv_f1_macro": 0.9573101470333769,
+      "test_accuracy": 0.9682170542635659,
+      "test_f1_macro": 0.966596026647195
+    }
+  },
+  "elapsed_seconds": 120.4
+}
