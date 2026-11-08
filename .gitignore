@@ -1,0 +1,20 @@
+# Środowisko Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Dane (zbyt duże dla Git, odtwarzane skryptami)
+data/raw/
+data/processed/
+
+# Pliki tymczasowe Worda i systemu
+~$*.docx
+Thumbs.db
+.DS_Store
+
+# Ustawienia lokalne edytorów
+.vscode/
+.idea/
