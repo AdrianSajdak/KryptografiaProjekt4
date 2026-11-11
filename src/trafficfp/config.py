@@ -40,6 +40,13 @@ class KnnConfig:
 
 
 @dataclass(frozen=True)
+class PaddingConfig:
+    max_size: int
+    block_sizes: tuple[int, ...]
+    random_max_extra: tuple[int, ...]
+
+
+@dataclass(frozen=True)
 class Config:
     seed: int
     paths: Paths
@@ -47,6 +54,7 @@ class Config:
     split: SplitConfig
     knn: KnnConfig
     accuracy_threshold: float
+    padding: PaddingConfig
 
 
 def load_config(path: Path = DEFAULT_CONFIG) -> Config:
@@ -72,4 +80,9 @@ def load_config(path: Path = DEFAULT_CONFIG) -> Config:
             selection_scoring=knn["selection_scoring"],
         ),
         accuracy_threshold=float(raw["success"]["accuracy_threshold"]),
+        padding=PaddingConfig(
+            max_size=int(raw["padding"]["max_size"]),
+            block_sizes=tuple(raw["padding"]["block_sizes"]),
+            random_max_extra=tuple(raw["padding"]["random_max_extra"]),
+        ),
     )
