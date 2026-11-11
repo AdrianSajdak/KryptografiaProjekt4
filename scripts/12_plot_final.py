@@ -156,24 +156,31 @@ def plot_baselines(baselines, threshold, path):
 # ---------------------------------------------------------------- padding
 def plot_padding_tradeoff(padding, threshold, path):
     main = padding["main_feature_set"]
-    figure, axis = plt.subplots(figsize=(FIGURE_WIDTH, 3.4))
-    base = padding["baseline"][main]["test_chronological"]["accuracy"] * 100
-    overhead = [d["overhead"] * 100 for d in padding["defenses"]]
-    naive = [d["naive"][main]["test_chronological"]["accuracy"] * 100 for d in padding["defenses"]]
-    adaptive = [max(item["test_chronological"]["accuracy"] for item in d["adaptive"]["by_feature_set"].values()) * 100 for d in padding["defenses"]]
-    axis.scatter([0], [base], s=60, color=INK, zorder=4, label="bez obrony")
-    axis.scatter(overhead, naive, s=55, color=SERIES[1], edgecolor=SURFACE, linewidth=1.2, zorder=3, label="przeciwnik naiwny (statystyki)")
-    axis.scatter(overhead, adaptive, s=55, color=SERIES[0], edgecolor=SURFACE, linewidth=1.2, zorder=3, label="przeciwnik adaptacyjny (najlepszy zestaw)")
-    for d, x, y_naive, y_adaptive in zip(padding["defenses"], overhead, naive, adaptive):
-        axis.plot([x, x], [y_naive, y_adaptive], color=MUTED, linewidth=0.8, zorder=1)
-        axis.text(x, min(y_naive, y_adaptive) - 3.2, d["label"], ha="center", va="top", fontsize=7, color=INK_SECONDARY, rotation=0)
-    axis.axhline(threshold * 100, color=INK, linewidth=1)
-    axis.text(max(overhead) * 1.02, threshold * 100 + 1, "kryterium 90%", ha="right", color=INK, fontsize=8.5)
-    axis.set_xlabel("Narzut przepustowości [% dodatkowych bajtów]")
-    axis.set_ylabel("Accuracy na teście głównym [%]")
-    axis.set_ylim(0, 108)
-    axis.set_xscale("symlog", linthresh=10)
-    axis.legend(loc="lower left", ncol=1)
+    defenses = sorted(padding["defenses"], key=lambda d: d["overhead"])
+    rows = [("bez obrony", 0.0, padding["baseline"][main]["test_chronological"]["accuracy"], padding["baseline"][main]["test_chronological"]["accuracy"])]
+    for d in defenses:
+        adaptive = d["adaptive"]["by_feature_set"][d["adaptive"]["best_configuration"]["feature_set"]]["test_chronological"]["accuracy"]
+        rows.append((d["label"], d["overhead"], d["naive"][main]["test_chronological"]["accuracy"], adaptive))
+    figure, axis = plt.subplots(figsize=(FIGURE_WIDTH, 3.7))
+    positions = np.arange(len(rows))[::-1]
+    for position, (label, overhead, naive, adaptive) in zip(positions, rows):
+        axis.plot([naive * 100, adaptive * 100], [position, position], color=MUTED, linewidth=1.2, zorder=1)
+        axis.scatter([naive * 100], [position], s=50, color=SERIES[1], edgecolor=SURFACE, linewidth=1.2, zorder=3)
+        axis.scatter([adaptive * 100], [position], s=50, color=SERIES[0], edgecolor=SURFACE, linewidth=1.2, zorder=3)
+        axis.text(min(naive, adaptive) * 100 - 2, position, percent(naive * 100), ha="right", va="center", fontsize=7.5, color=INK_SECONDARY)
+    labels = [label if overhead == 0 else f"{label} (+{percent(overhead * 100)}%)" for label, overhead, _, _ in rows]
+    axis.set_yticks(positions, labels)
+    axis.axvline(threshold * 100, color=INK, linewidth=1)
+    axis.text(threshold * 100 - 1, positions[0] + 0.7, "kryterium 90%", ha="right", color=INK, fontsize=8)
+    axis.set_xlim(20, 103)
+    axis.set_ylim(-0.7, len(rows) - 0.1)
+    axis.set_xlabel("Accuracy na teście głównym [%]; w nawiasie narzut przepustowości")
+    axis.grid(axis="y", visible=False)
+    handles = [
+        plt.Line2D([], [], marker="o", linestyle="", color=SERIES[1], markersize=7, label="przeciwnik naiwny (statystyki)"),
+        plt.Line2D([], [], marker="o", linestyle="", color=SERIES[0], markersize=7, label="przeciwnik adaptacyjny (najlepszy zestaw)"),
+    ]
+    axis.legend(handles=handles, loc="upper center", ncol=2, bbox_to_anchor=(0.45, 1.12))
     save_figure(figure, path)
 
 
@@ -202,6 +209,69 @@ def plot_padding_heatmap(padding, path):
     save_figure(figure, path)
 
 
+# ---------------------------------------------------------------- CESNET-TLS22
+CATEGORY_COLORS = dict(zip(("wideo", "audio", "www", "pliki"), SERIES))
+CONTROL_LABELS = {
+    "whole_flow_volume_knn": "k-NN: objętość całego przepływu",
+    "majority": "klasa większościowa",
+    "chance": "losowanie wg rozkładu klas",
+    "permuted_labels_knn": "k-NN: przetasowane etykiety",
+}
+
+
+def plot_cesnet(cesnet, threshold, path):
+    figure, (left, right) = plt.subplots(1, 2, figsize=(FIGURE_WIDTH, 2.9), gridspec_kw={"width_ratios": [1, 1.35]})
+    summary = cesnet["evaluations"]["test_week"]
+    labels = summary["labels"]
+    matrix = np.asarray(summary["confusion_matrix"], dtype=float)
+    shares = matrix / matrix.sum(axis=1, keepdims=True)
+    left.imshow(shares, cmap=BLUES, vmin=0, vmax=1)
+    for row in range(matrix.shape[0]):
+        for column in range(matrix.shape[1]):
+            left.text(column, row, f"{int(matrix[row, column])}", ha="center", va="center", fontsize=8.5, color=SURFACE if shares[row, column] > 0.55 else INK)
+    left.set_xticks(range(len(labels)), labels, rotation=25, ha="right")
+    left.set_yticks(range(len(labels)), labels)
+    left.set_xlabel("Klasa przewidziana")
+    left.set_ylabel("Klasa rzeczywista")
+    left.set_title("Macierz pomyłek (tydzień 41)", fontsize=9.5)
+    left.grid(visible=False)
+    for spine in left.spines.values():
+        spine.set_visible(False)
+
+    names = ["k-NN: pierwsze N pakietów", *CONTROL_LABELS.values()]
+    values = [summary["accuracy"], *[cesnet["controls"][key]["test_week"]["accuracy"] for key in CONTROL_LABELS]]
+    positions = np.arange(len(names))[::-1]
+    right.barh(positions, np.asarray(values) * 100, height=0.55, color=[SERIES[0]] + [MUTED] * len(CONTROL_LABELS))
+    for position, value in zip(positions, values):
+        right.text(value * 100 + 1.5, position, f"{percent(value * 100)}%", va="center", color=INK_SECONDARY, fontsize=8.5)
+    right.axvline(threshold * 100, color=INK, linewidth=1)
+    right.set_yticks(positions, names)
+    right.set_xlim(0, 118)
+    right.set_xlabel("Accuracy na tygodniu testowym [%]")
+    right.grid(axis="y", visible=False)
+    right.set_title("Model i grupa kontrolna", fontsize=9.5)
+    figure.tight_layout(w_pad=1.5)
+    save_figure(figure, path)
+
+
+def plot_cesnet_apps(cesnet, path):
+    apps = sorted(cesnet["per_app"].items(), key=lambda item: (["wideo", "audio", "www", "pliki"].index(item[1]["category"]), -item[1]["accuracy"]))
+    figure, axis = plt.subplots(figsize=(FIGURE_WIDTH, 3.8))
+    positions = np.arange(len(apps))[::-1]
+    colors = [CATEGORY_COLORS[item["category"]] for _, item in apps]
+    axis.barh(positions, [item["accuracy"] * 100 for _, item in apps], height=0.62, color=colors)
+    for position, (name, item) in zip(positions, apps):
+        axis.text(item["accuracy"] * 100 + 1, position, f"{percent(item['accuracy'] * 100)}%  (n = {item['n_samples']})", va="center", color=INK_SECONDARY, fontsize=7.5)
+    axis.set_yticks(positions, [name for name, _ in apps], fontsize=8)
+    axis.set_xlim(0, 125)
+    axis.set_xticks(range(0, 101, 20))
+    axis.set_xlabel("Accuracy na tygodniu testowym [%]")
+    axis.grid(axis="y", visible=False)
+    handles = [plt.Rectangle((0, 0), 1, 1, color=color) for color in CATEGORY_COLORS.values()]
+    axis.legend(handles, list(CATEGORY_COLORS), loc="lower right", ncol=4, bbox_to_anchor=(1.0, 1.0))
+    save_figure(figure, path)
+
+
 def main() -> None:
     config = load_config()
     apply_style()
@@ -215,6 +285,10 @@ def main() -> None:
     baselines = load(config, "baselines_category.json")
     if baselines:
         plot_baselines(baselines, threshold, figures / "results_baselines.png")
+    cesnet = load(config, "results_cesnet.json")
+    if cesnet:
+        plot_cesnet(cesnet, threshold, figures / "results_cesnet.png")
+        plot_cesnet_apps(cesnet, figures / "results_cesnet_apps.png")
     padding = load(config, "padding_category.json")
     if padding:
         plot_padding_tradeoff(padding, threshold, figures / "results_padding_tradeoff.png")
