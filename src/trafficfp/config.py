@@ -47,6 +47,16 @@ class PaddingConfig:
 
 
 @dataclass(frozen=True)
+class BaselineConfig:
+    seed: int
+    rf_n_estimators: int
+    rf_max_depth: tuple[int | None, ...]
+    rf_min_samples_leaf: tuple[int, ...]
+    svm_c: tuple[float, ...]
+    svm_gamma: tuple[float | str, ...]
+
+
+@dataclass(frozen=True)
 class Config:
     seed: int
     paths: Paths
@@ -55,6 +65,7 @@ class Config:
     knn: KnnConfig
     accuracy_threshold: float
     padding: PaddingConfig
+    baselines: BaselineConfig
 
 
 def load_config(path: Path = DEFAULT_CONFIG) -> Config:
@@ -84,5 +95,13 @@ def load_config(path: Path = DEFAULT_CONFIG) -> Config:
             max_size=int(raw["padding"]["max_size"]),
             block_sizes=tuple(raw["padding"]["block_sizes"]),
             random_max_extra=tuple(raw["padding"]["random_max_extra"]),
+        ),
+        baselines=BaselineConfig(
+            seed=int(raw["seed"]),
+            rf_n_estimators=int(raw["baselines"]["random_forest"]["n_estimators"]),
+            rf_max_depth=tuple(raw["baselines"]["random_forest"]["max_depth"]),
+            rf_min_samples_leaf=tuple(raw["baselines"]["random_forest"]["min_samples_leaf"]),
+            svm_c=tuple(float(value) for value in raw["baselines"]["svm"]["C"]),
+            svm_gamma=tuple(raw["baselines"]["svm"]["gamma"]),
         ),
     )
