@@ -105,7 +105,7 @@ def plot_shift_coverage(shift, path):
     right.plot(fractions, overall, color=SERIES[0], linewidth=2, marker="o", markersize=5, markeredgecolor=SURFACE, label="wszystkie kategorie")
     right.text(fractions[0] + 1.5, overall[0], percent(overall[0]), va="center", color=INK_SECONDARY, fontsize=8)
     right.text(fractions[0] + 1.5, drive[0], percent(drive[0]), va="center", color=INK_SECONDARY, fontsize=8)
-    right.text(fractions[-1], min(overall[1:] + drive[1:]) - 6, f"od 60%: co najmniej {percent(min(overall[1:] + drive[1:]))}", ha="right", color=INK_SECONDARY, fontsize=8)
+    right.text(fractions[-1], min(overall[1:] + drive[1:]) - 14, f"od 60%: co najmniej {percent(min(overall[1:] + drive[1:]))}%", ha="right", color=INK_SECONDARY, fontsize=8)
     right.set_xticks(fractions, [f"{int(x)}%" for x in fractions])
     right.set_ylim(0, 108)
     right.set_xlabel("Najstarsze przepływy użyte do uczenia")
