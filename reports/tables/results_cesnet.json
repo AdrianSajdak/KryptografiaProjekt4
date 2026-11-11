@@ -1,0 +1,533 @@
+{
+  "dataset": "CESNET-TLS22",
+  "split": {
+    "train": 11200,
+    "test": 11200,
+    "train_week": "W-2021-40",
+    "test_week": "W-2021-41"
+  },
+  "best_configuration": {
+    "feature_set": "all",
+    "n_packets": 10,
+    "n_neighbors": 1,
+    "metric": "manhattan",
+    "weights": "uniform"
+  },
+  "best_cv": {
+    "cv_f1_macro": 0.9253970750582663,
+    "cv_accuracy": 0.9255357142857144
+  },
+  "accuracy_threshold": 0.9,
+  "evaluations": {
+    "test_week": {
+      "n_samples": 11200,
+      "accuracy": 0.9251785714285714,
+      "accuracy_ci95": [
+        0.9201587992791878,
+        0.9299067817943747
+      ],
+      "balanced_accuracy": 0.9251785714285714,
+      "f1_macro": 0.9251579265358042,
+      "per_class": {
+        "wideo": {
+          "precision": 0.895224518888097,
+          "recall": 0.8971428571428571,
+          "f1": 0.8961826614341777,
+          "support": 2800
+        },
+        "audio": {
+          "precision": 0.9521106775452288,
+          "recall": 0.9585714285714285,
+          "f1": 0.9553301299163552,
+          "support": 2800
+        },
+        "www": {
+          "precision": 0.9220265900107797,
+          "recall": 0.9164285714285715,
+          "f1": 0.9192190578542002,
+          "support": 2800
+        },
+        "pliki": {
+          "precision": 0.9312320916905444,
+          "recall": 0.9285714285714286,
+          "f1": 0.9298998569384835,
+          "support": 2800
+        }
+      },
+      "labels": [
+        "wideo",
+        "audio",
+        "www",
+        "pliki"
+      ],
+      "confusion_matrix": [
+        [
+          2512,
+          56,
+          117,
+          115
+        ],
+        [
+          62,
+          2684,
+          37,
+          17
+        ],
+        [
+          121,
+          53,
+          2566,
+          60
+        ],
+        [
+          111,
+          26,
+          63,
+          2600
+        ]
+      ]
+    }
+  },
+  "per_app": {
+    "amazon-prime": {
+      "category": "wideo",
+      "n_samples": 70,
+      "accuracy": 0.8714285714285714
+    },
+    "bing": {
+      "category": "www",
+      "n_samples": 1061,
+      "accuracy": 0.9660697455230914
+    },
+    "cesnet-filesender": {
+      "category": "pliki",
+      "n_samples": 83,
+      "accuracy": 0.9036144578313253
+    },
+    "dropbox": {
+      "category": "pliki",
+      "n_samples": 1114,
+      "accuracy": 0.9775583482944344
+    },
+    "duckduckgo": {
+      "category": "www",
+      "n_samples": 111,
+      "accuracy": 0.8468468468468469
+    },
+    "google-drive": {
+      "category": "pliki",
+      "n_samples": 310,
+      "accuracy": 0.6709677419354839
+    },
+    "google-www": {
+      "category": "www",
+      "n_samples": 1489,
+      "accuracy": 0.8858294157152451
+    },
+    "microsoft-onedrive": {
+      "category": "pliki",
+      "n_samples": 958,
+      "accuracy": 0.9707724425887265
+    },
+    "netflix": {
+      "category": "wideo",
+      "n_samples": 57,
+      "accuracy": 0.7543859649122807
+    },
+    "o2tv": {
+      "category": "wideo",
+      "n_samples": 997,
+      "accuracy": 0.9779338014042126
+    },
+    "owncloud": {
+      "category": "pliki",
+      "n_samples": 138,
+      "accuracy": 0.927536231884058
+    },
+    "seznam-search": {
+      "category": "www",
+      "n_samples": 139,
+      "accuracy": 0.920863309352518
+    },
+    "soundcloud": {
+      "category": "audio",
+      "n_samples": 164,
+      "accuracy": 0.8353658536585366
+    },
+    "spotify": {
+      "category": "audio",
+      "n_samples": 2636,
+      "accuracy": 0.966236722306525
+    },
+    "twitch": {
+      "category": "wideo",
+      "n_samples": 544,
+      "accuracy": 0.9136029411764706
+    },
+    "ulozto": {
+      "category": "pliki",
+      "n_samples": 97,
+      "accuracy": 0.8144329896907216
+    },
+    "uschovna": {
+      "category": "pliki",
+      "n_samples": 100,
+      "accuracy": 0.91
+    },
+    "vimeo": {
+      "category": "wideo",
+      "n_samples": 31,
+      "accuracy": 0.6774193548387096
+    },
+    "youtube": {
+      "category": "wideo",
+      "n_samples": 1101,
+      "accuracy": 0.8310626702997275
+    }
+  },
+  "controls": {
+    "majority": {
+      "test_week": {
+        "n_samples": 11200,
+        "accuracy": 0.25,
+        "accuracy_ci95": [
+          0.2420672740225909,
+          0.2581041608774563
+        ],
+        "balanced_accuracy": 0.25,
+        "f1_macro": 0.1,
+        "per_class": {
+          "wideo": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2800
+          },
+          "audio": {
+            "precision": 0.25,
+            "recall": 1.0,
+            "f1": 0.4,
+            "support": 2800
+          },
+          "www": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2800
+          },
+          "pliki": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "support": 2800
+          }
+        },
+        "labels": [
+          "wideo",
+          "audio",
+          "www",
+          "pliki"
+        ],
+        "confusion_matrix": [
+          [
+            0,
+            2800,
+            0,
+            0
+          ],
+          [
+            0,
+            2800,
+            0,
+            0
+          ],
+          [
+            0,
+            2800,
+            0,
+            0
+          ],
+          [
+            0,
+            2800,
+            0,
+            0
+          ]
+        ]
+      }
+    },
+    "chance": {
+      "test_week": {
+        "n_samples": 11200,
+        "accuracy": 0.2544642857142857,
+        "accuracy_ci95": [
+          0.24648288659220283,
+          0.262614058398915
+        ],
+        "balanced_accuracy": 0.2544642857142857,
+        "f1_macro": 0.2544248778922138,
+        "per_class": {
+          "wideo": {
+            "precision": 0.2570684523809524,
+            "recall": 0.24678571428571427,
+            "f1": 0.25182215743440234,
+            "support": 2800
+          },
+          "audio": {
+            "precision": 0.25160370634354956,
+            "recall": 0.25214285714285717,
+            "f1": 0.2518729932215483,
+            "support": 2800
+          },
+          "www": {
+            "precision": 0.24497708847373986,
+            "recall": 0.24821428571428572,
+            "f1": 0.2465850629767607,
+            "support": 2800
+          },
+          "pliki": {
+            "precision": 0.2642035552457302,
+            "recall": 0.27071428571428574,
+            "f1": 0.26741929793614394,
+            "support": 2800
+          }
+        },
+        "labels": [
+          "wideo",
+          "audio",
+          "www",
+          "pliki"
+        ],
+        "confusion_matrix": [
+          [
+            691,
+            682,
+            747,
+            680
+          ],
+          [
+            672,
+            706,
+            694,
+            728
+          ],
+          [
+            685,
+            717,
+            695,
+            703
+          ],
+          [
+            640,
+            701,
+            701,
+            758
+          ]
+        ]
+      }
+    },
+    "permuted_labels_knn": {
+      "test_week": {
+        "n_samples": 11200,
+        "accuracy": 0.23991071428571428,
+        "accuracy_ci95": [
+          0.23209220602912967,
+          0.247907576065098
+        ],
+        "balanced_accuracy": 0.23991071428571428,
+        "f1_macro": 0.2397742640068633,
+        "per_class": {
+          "wideo": {
+            "precision": 0.22864506627393225,
+            "recall": 0.22178571428571428,
+            "f1": 0.22516316171138506,
+            "support": 2800
+          },
+          "audio": {
+            "precision": 0.2626472626472626,
+            "recall": 0.27071428571428574,
+            "f1": 0.2666197678508618,
+            "support": 2800
+          },
+          "www": {
+            "precision": 0.22605633802816902,
+            "recall": 0.2292857142857143,
+            "f1": 0.2276595744680851,
+            "support": 2800
+          },
+          "pliki": {
+            "precision": 0.24147933284989123,
+            "recall": 0.23785714285714285,
+            "f1": 0.23965455199712127,
+            "support": 2800
+          }
+        },
+        "labels": [
+          "wideo",
+          "audio",
+          "www",
+          "pliki"
+        ],
+        "confusion_matrix": [
+          [
+            621,
+            722,
+            738,
+            719
+          ],
+          [
+            699,
+            758,
+            694,
+            649
+          ],
+          [
+            707,
+            727,
+            642,
+            724
+          ],
+          [
+            689,
+            679,
+            766,
+            666
+          ]
+        ]
+      }
+    },
+    "whole_flow_volume_knn": {
+      "test_week": {
+        "n_samples": 11200,
+        "accuracy": 0.5394642857142857,
+        "accuracy_ci95": [
+          0.5302212563792099,
+          0.5486802528258541
+        ],
+        "balanced_accuracy": 0.5394642857142857,
+        "f1_macro": 0.5392526562031028,
+        "per_class": {
+          "wideo": {
+            "precision": 0.5341685649202733,
+            "recall": 0.5025,
+            "f1": 0.5178505704821494,
+            "support": 2800
+          },
+          "audio": {
+            "precision": 0.49722222222222223,
+            "recall": 0.5114285714285715,
+            "f1": 0.504225352112676,
+            "support": 2800
+          },
+          "www": {
+            "precision": 0.5299539170506913,
+            "recall": 0.5339285714285714,
+            "f1": 0.5319338196050525,
+            "support": 2800
+          },
+          "pliki": {
+            "precision": 0.5961605584642233,
+            "recall": 0.61,
+            "f1": 0.6030008826125332,
+            "support": 2800
+          }
+        },
+        "labels": [
+          "wideo",
+          "audio",
+          "www",
+          "pliki"
+        ],
+        "confusion_matrix": [
+          [
+            1407,
+            512,
+            432,
+            449
+          ],
+          [
+            460,
+            1432,
+            534,
+            374
+          ],
+          [
+            379,
+            592,
+            1495,
+            334
+          ],
+          [
+            388,
+            344,
+            360,
+            1708
+          ]
+        ]
+      }
+    }
+  },
+  "feature_set_comparison": {
+    "all": {
+      "configuration": {
+        "feature_set": "all",
+        "n_packets": 10,
+        "n_neighbors": 1,
+        "metric": "manhattan",
+        "weights": "uniform"
+      },
+      "cv_f1_macro": 0.9253970750582663,
+      "test_accuracy": 0.9251785714285714,
+      "test_f1_macro": 0.9251579265358042
+    },
+    "sizes+timing": {
+      "configuration": {
+        "feature_set": "sizes+timing",
+        "n_packets": 10,
+        "n_neighbors": 3,
+        "metric": "manhattan",
+        "weights": "distance"
+      },
+      "cv_f1_macro": 0.9167859887222921,
+      "test_accuracy": 0.9180357142857143,
+      "test_f1_macro": 0.9178171350392388
+    },
+    "stats": {
+      "configuration": {
+        "feature_set": "stats",
+        "n_packets": 10,
+        "n_neighbors": 1,
+        "metric": "manhattan",
+        "weights": "uniform"
+      },
+      "cv_f1_macro": 0.9146161440021221,
+      "test_accuracy": 0.9119642857142857,
+      "test_f1_macro": 0.9119260817780895
+    },
+    "sizes": {
+      "configuration": {
+        "feature_set": "sizes",
+        "n_packets": 10,
+        "n_neighbors": 5,
+        "metric": "manhattan",
+        "weights": "distance"
+      },
+      "cv_f1_macro": 0.9093824213309503,
+      "test_accuracy": 0.9085714285714286,
+      "test_f1_macro": 0.9084821576617645
+    },
+    "timing": {
+      "configuration": {
+        "feature_set": "timing",
+        "n_packets": 10,
+        "n_neighbors": 5,
+        "metric": "manhattan",
+        "weights": "distance"
+      },
+      "cv_f1_macro": 0.8247774616844374,
+      "test_accuracy": 0.8359821428571429,
+      "test_f1_macro": 0.8354588866025986
+    }
+  },
+  "elapsed_seconds": 347.0
+}
