@@ -1,0 +1,95 @@
+feature,group,ks_human,smd_human,ks_test,smd_test
+gap_all_p10,odstępy czasu,0.58597,0.71183,0.22335,0.17241
+gap_out_min,odstępy czasu,0.51544,1.43151,0.21493,0.26836
+gap_out_p10,odstępy czasu,0.47516,1.45965,0.22156,0.13461
+gap_in_p10,odstępy czasu,0.46295,0.54455,0.23777,0.24872
+size_out_min,rozmiary,0.44313,2.14143,0.12477,0.24229
+gap_in_min,odstępy czasu,0.44113,0.65555,0.15495,0.22498
+burst_rate,ogólne,0.44017,0.83734,0.22476,0.27564
+burst_len_mean,ogólne,0.44017,0.92173,0.22476,0.26943
+gap_all_p25,odstępy czasu,0.43899,0.74087,0.25068,0.32877
+gap_out_p25,odstępy czasu,0.40184,1.14242,0.23967,0.21100
+size_out_mean,rozmiary,0.39623,0.31949,0.26610,0.33422
+gap_all_p90,odstępy czasu,0.39375,0.55473,0.36261,0.68794
+hist_out_100,histogramy,0.39057,0.62567,0.27004,0.30295
+gap_in_p25,odstępy czasu,0.37050,0.21010,0.23853,0.29037
+gap_out_p50,odstępy czasu,0.36630,0.34787,0.25249,0.38410
+hist_out_0,histogramy,0.35849,0.49688,0.18331,0.09800
+burst_len_std,ogólne,0.35777,0.49335,0.22980,0.20209
+gap_all_p50,odstępy czasu,0.35777,0.84035,0.25287,0.33357
+gap_in_p90,odstępy czasu,0.35500,0.45267,0.35869,0.65372
+gap_all_min,odstępy czasu,0.35357,0.57102,0.11525,0.02651
+gap_out_p75,odstępy czasu,0.35349,0.49045,0.30249,0.50782
+size_out_p90,rozmiary,0.34799,0.24033,0.26422,0.40069
+gap_out_mean,odstępy czasu,0.34514,0.66451,0.28824,0.46704
+burst_len_max,ogólne,0.34183,0.40113,0.13651,0.16357
+log_span_ms,ogólne,0.33898,0.64738,0.26150,0.30924
+gap_all_max,odstępy czasu,0.33892,0.68785,0.27330,0.32610
+gap_out_p90,odstępy czasu,0.33720,0.53866,0.29581,0.44671
+gap_out_max,odstępy czasu,0.32662,0.66944,0.26569,0.31982
+gap_in_max,odstępy czasu,0.32633,0.64936,0.29045,0.30405
+gap_all_mean,odstępy czasu,0.31700,0.59294,0.34742,0.60132
+hist_in_1400,histogramy,0.31452,0.52686,0.20251,0.28855
+gap_in_p50,odstępy czasu,0.30959,0.30661,0.31440,0.46706
+gap_all_std,odstępy czasu,0.30487,0.36857,0.29586,0.53144
+hist_in_400,histogramy,0.30409,0.85691,0.22647,0.31188
+size_in_std,rozmiary,0.30359,0.35057,0.19460,0.24093
+gap_in_p75,odstępy czasu,0.29764,0.45688,0.33823,0.62528
+size_out_p10,rozmiary,0.29595,2.03580,0.07646,0.06995
+size_all_std,rozmiary,0.29313,0.28032,0.26844,0.44330
+log_bytes,ogólne,0.29149,0.36667,0.28873,0.54003
+size_all_mean,rozmiary,0.29149,0.39223,0.28873,0.54738
+size_out_p25,rozmiary,0.29077,0.53203,0.14454,0.15849
+size_all_p25,rozmiary,0.28829,1.34113,0.10525,0.05325
+out_packet_share,ogólne,0.28536,0.46974,0.19071,0.26345
+size_in_mean,rozmiary,0.27646,0.29191,0.26815,0.46410
+gap_in_std,odstępy czasu,0.27467,0.30466,0.26997,0.50917
+gap_all_p75,odstępy czasu,0.27283,0.42922,0.30180,0.47972
+size_all_min,rozmiary,0.25852,0.58022,0.18438,0.27026
+gap_in_mean,odstępy czasu,0.25574,0.37364,0.36285,0.58245
+size_in_p75,rozmiary,0.25372,0.46990,0.13026,0.27462
+size_out_p50,rozmiary,0.25093,0.39342,0.18573,0.19709
+size_all_p10,rozmiary,0.25073,0.49361,0.12045,0.16410
+size_in_p90,rozmiary,0.24913,0.42768,0.10920,0.22549
+out_position_std,ogólne,0.24798,0.39774,0.21448,0.19358
+size_in_min,rozmiary,0.24472,1.32739,0.18471,0.28247
+size_out_p75,rozmiary,0.23945,0.36132,0.23925,0.54096
+size_out_std,rozmiary,0.23720,0.21331,0.26168,0.30848
+hist_out_1400,histogramy,0.23631,0.49536,0.15551,0.21669
+gap_out_std,odstępy czasu,0.22980,0.37476,0.21496,0.36700
+out_byte_share,ogólne,0.22513,0.29608,0.30470,0.34354
+hist_in_0,histogramy,0.22375,0.20455,0.27492,0.31753
+hist_out_700,histogramy,0.22352,0.31468,0.22046,0.34376
+out_position_mean,ogólne,0.22327,0.20459,0.21049,0.29517
+hist_in_100,histogramy,0.22268,0.66538,0.27340,0.47856
+hist_in_500,histogramy,0.22266,1.06640,0.08327,0.14985
+size_in_p25,rozmiary,0.22008,0.25224,0.23456,0.59085
+size_in_p50,rozmiary,0.21767,0.40613,0.20539,0.37093
+hist_in_200,histogramy,0.21616,0.32199,0.20722,0.40781
+hist_out_200,histogramy,0.21163,0.76808,0.19645,0.35744
+hist_in_1200,histogramy,0.20925,0.39467,0.16804,0.20423
+size_in_max,rozmiary,0.20738,0.44695,0.07154,0.13376
+size_all_p90,rozmiary,0.20162,0.34880,0.10940,0.23106
+hist_in_1000,histogramy,0.20161,0.55874,0.11303,0.31256
+hist_in_900,histogramy,0.19568,0.40716,0.10673,0.19615
+size_all_max,rozmiary,0.19519,0.32413,0.08599,0.21245
+hist_in_300,histogramy,0.19216,0.18811,0.25076,0.41505
+size_all_p75,rozmiary,0.18685,0.31650,0.12278,0.24835
+hist_out_500,histogramy,0.18558,0.26626,0.17814,0.27977
+size_in_p10,rozmiary,0.18392,0.07439,0.24541,0.42405
+hist_out_600,histogramy,0.18013,0.32113,0.09873,0.14202
+size_all_p50,rozmiary,0.17442,0.31195,0.23939,0.51945
+hist_out_1300,histogramy,0.16543,0.15720,0.11088,0.08334
+hist_in_700,histogramy,0.15896,0.36895,0.16756,0.36767
+size_out_max,rozmiary,0.15403,0.87470,0.14275,0.18096
+hist_in_1300,histogramy,0.14179,0.20551,0.11310,0.07401
+hist_in_1100,histogramy,0.14145,0.40603,0.08950,0.19613
+hist_out_400,histogramy,0.11439,0.08405,0.14634,0.15144
+hist_in_600,histogramy,0.10966,0.33071,0.18329,0.32268
+hist_in_800,histogramy,0.10951,0.23772,0.07489,0.21645
+hist_out_300,histogramy,0.10792,0.12430,0.20728,0.24635
+hist_out_900,histogramy,0.09811,0.11154,0.12452,0.23201
+hist_out_800,histogramy,0.09161,0.20223,0.10754,0.27211
+hist_out_1100,histogramy,0.07090,0.23685,0.03414,0.14047
+hist_out_1200,histogramy,0.06909,0.26956,0.06933,0.18263
+hist_out_1000,histogramy,0.05197,0.09564,0.07625,0.15923
