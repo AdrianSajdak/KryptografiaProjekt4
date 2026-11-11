@@ -57,6 +57,18 @@ class BaselineConfig:
 
 
 @dataclass(frozen=True)
+class CesnetConfig:
+    raw: Path
+    processed: Path
+    per_category_per_day: int
+    min_packets: int
+    train_week: str
+    test_week: str
+    packet_counts: tuple[int, ...]
+    neighbors: tuple[int, ...]
+
+
+@dataclass(frozen=True)
 class Config:
     seed: int
     paths: Paths
@@ -66,6 +78,7 @@ class Config:
     accuracy_threshold: float
     padding: PaddingConfig
     baselines: BaselineConfig
+    cesnet: CesnetConfig
 
 
 def load_config(path: Path = DEFAULT_CONFIG) -> Config:
@@ -103,5 +116,15 @@ def load_config(path: Path = DEFAULT_CONFIG) -> Config:
             rf_min_samples_leaf=tuple(raw["baselines"]["random_forest"]["min_samples_leaf"]),
             svm_c=tuple(float(value) for value in raw["baselines"]["svm"]["C"]),
             svm_gamma=tuple(raw["baselines"]["svm"]["gamma"]),
+        ),
+        cesnet=CesnetConfig(
+            raw=PROJECT_ROOT / raw["cesnet"]["raw"],
+            processed=PROJECT_ROOT / raw["cesnet"]["processed"],
+            per_category_per_day=int(raw["cesnet"]["per_category_per_day"]),
+            min_packets=int(raw["cesnet"]["min_packets"]),
+            train_week=str(raw["cesnet"]["train_week"]),
+            test_week=str(raw["cesnet"]["test_week"]),
+            packet_counts=tuple(raw["cesnet"]["packet_counts"]),
+            neighbors=tuple(raw["cesnet"]["neighbors"]),
         ),
     )

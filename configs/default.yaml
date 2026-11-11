@@ -46,3 +46,16 @@ baselines:
   svm:
     C: [1, 10, 100]
     gamma: [scale, 0.01]
+
+cesnet:
+  # Walidacja na ruchu TLS po TCP (CESNET-TLS22). Usługi wybrane w data/cesnet.py.
+  raw: data/raw/cesnet_tls22
+  processed: data/processed/cesnet_tls22
+  # Liczba losowanych przepływów każdej kategorii z każdego dnia.
+  per_category_per_day: 400
+  # Minimalna liczba pakietów z danymi w polu PPI (najwyżej 30).
+  min_packets: 10
+  train_week: W-2021-40
+  test_week: W-2021-41
+  packet_counts: [10, 20, 30]
+  neighbors: [1, 3, 5, 9, 15]
